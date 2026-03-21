@@ -28,7 +28,6 @@ public class ApiProvider {
     private static final int DUBBO_PORT = 20000;
     private static final int TRIPLE_PORT = 50052;
     private static final String SERVICE_VERSION = "1.0.0";
-    private static final String ZOOKEEPER_ADDRESS = "zookeeper://127.0.0.1:2181";
 
     public static void main(String[] args) throws InterruptedException {
         // Dubbo protocol service (group=dubbo)
@@ -47,9 +46,9 @@ public class ApiProvider {
         tripleService.setVersion(SERVICE_VERSION);
         tripleService.setProtocol(new ProtocolConfig("tri", TRIPLE_PORT));
 
-        // Register provider to ZooKeeper
-        RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress(ZOOKEEPER_ADDRESS);
+        // No registry: expose directly on the configured ports
+        // "N/A" disables registry; provider is exposed directly on the configured port
+        RegistryConfig registryConfig = new RegistryConfig("N/A");
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance();
         bootstrap.application("generic-java-server")
@@ -58,7 +57,7 @@ public class ApiProvider {
                 .service(tripleService)
                 .start();
 
-        System.out.println("Generic Java server started:");
+        System.out.println("Generic Java server started (no registry, direct connection):");
         System.out.println("  - Dubbo protocol on port " + DUBBO_PORT + " (group=dubbo)");
         System.out.println("  - Triple protocol on port " + TRIPLE_PORT + " (group=triple)");
 
