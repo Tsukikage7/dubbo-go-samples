@@ -50,6 +50,7 @@ Please refer to [HOWTO.md](HOWTO.md) for detailed instructions on running the sa
   * `router/tag`: Dubbo-go tag router examples.
   * `router/condition`: Dubbo-go condition router examples.
   * `router/script`: Dubbo-go script router examples.
+  * `router/polaris`: Quickly experience Polaris' service routing capabilities in Dubbo-go.
 * `rpc`: Various RPC protocol examples with Dubbo-go.
   * `rpc/dubbo`: Dubbo protocol example, including Java–Go interop.
   * `rpc/grpc`: gRPC protocol example.
@@ -60,12 +61,6 @@ Please refer to [HOWTO.md](HOWTO.md) for detailed instructions on running the sa
 * `timeout`: Demonstrates timeout handling in Dubbo-go.
 * `tls`: Demonstrates how to use TLS (based on X.509 certificates) in Dubbo-go to enable encrypted communication and/or mutual authentication between client and server, also includes Go–Java interoperability.
 * `transaction/seata-go`: Distributed transaction example using `seata-go`.
-
-### compatibility (legacy Dubbo-go samples)
-
-* `compatibility/generic`: Generic invocation example.
-* `compatibility/polaris`:  Dubbo-go integrate with polaris samples.
-    * `compatibility/polaris/router`: Quickly experience Polaris' service routing capabilities in dubbogo
 
 ### Tools
 
